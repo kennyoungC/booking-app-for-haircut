@@ -6,7 +6,7 @@ const Hero = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setSlider(!slider)
-    }, 3000)
+    }, 4000)
     return () => {
       clearInterval(timer)
     }
