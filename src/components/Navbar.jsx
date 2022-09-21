@@ -22,7 +22,7 @@ const Navbar = () => {
           </li>
           <li className="text-xl text-black font-semibold hover:text-gray-400 ">
             <Link to="about" smooth={true} duration={500}>
-              testimonial
+              testimonials
             </Link>
           </li>
           <li className="text-xl text-black font-semibold hover:text-gray-400 ">
@@ -53,7 +53,7 @@ const Navbar = () => {
           </li>
           <li className="text-xl text-black font-semibold hover:text-gray-400 ">
             <Link to="about" smooth={true} duration={500}>
-              testimonial
+              testimonials
             </Link>
           </li>
           <li className="text-xl text-black font-semibold hover:text-gray-400 ">

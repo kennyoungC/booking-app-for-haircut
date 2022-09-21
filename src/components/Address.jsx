@@ -10,8 +10,8 @@ const Address = (props) => {
           Universiteto Gatve 8, Akademija, Kaunas. Lithuania
         </address>
       </div>
-      <div class="mapouter flex justify-center">
-        <div class="gmap_canvas hidden  lg:block">
+      <div className="mapouter flex justify-center">
+        <div className="gmap_canvas hidden  lg:block">
           <iframe
             width="900"
             height="600"
@@ -23,7 +23,7 @@ const Address = (props) => {
             marginwidth="0"
           ></iframe>
         </div>
-        <div class="gmap_canvas hidden  md:block lg:hidden">
+        <div className="gmap_canvas hidden  md:block lg:hidden">
           <iframe
             width="600"
             height="500"
@@ -35,7 +35,7 @@ const Address = (props) => {
             marginwidth="0"
           ></iframe>
         </div>
-        <div class="gmap_canvas hidden sm:block md:hidden">
+        <div className="gmap_canvas hidden sm:block md:hidden">
           <iframe
             width="500"
             height="420"
@@ -47,7 +47,7 @@ const Address = (props) => {
             marginwidth="0"
           ></iframe>
         </div>
-        <div class="gmap_canvas block sm:hidden">
+        <div className="gmap_canvas block sm:hidden">
           <iframe
             width="360"
             height="300"
