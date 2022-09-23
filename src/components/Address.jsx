@@ -17,10 +17,10 @@ const Address = (props) => {
             height="600"
             id="gmap_canvas"
             src="https://maps.google.com/maps?q=universiteto%20gatve%208%20Akademija&t=&z=13&ie=UTF8&iwloc=&output=embed"
-            frameborder="0"
+            frameBorder="0"
             scrolling="no"
-            marginheight="0"
-            marginwidth="0"
+            marginHeight="0"
+            marginWidth="0"
           ></iframe>
         </div>
         <div className="gmap_canvas hidden  md:block lg:hidden">
@@ -29,10 +29,10 @@ const Address = (props) => {
             height="500"
             id="gmap_canvas"
             src="https://maps.google.com/maps?q=universiteto%20gatve%208%20Akademija&t=&z=13&ie=UTF8&iwloc=&output=embed"
-            frameborder="0"
+            frameBorder="0"
             scrolling="no"
-            marginheight="0"
-            marginwidth="0"
+            marginHeight="0"
+            marginWidth="0"
           ></iframe>
         </div>
         <div className="gmap_canvas hidden sm:block md:hidden">
@@ -41,10 +41,10 @@ const Address = (props) => {
             height="420"
             id="gmap_canvas"
             src="https://maps.google.com/maps?q=universiteto%20gatve%208%20Akademija&t=&z=13&ie=UTF8&iwloc=&output=embed"
-            frameborder="0"
+            frameBorder="0"
             scrolling="no"
-            marginheight="0"
-            marginwidth="0"
+            marginHeight="0"
+            marginWidth="0"
           ></iframe>
         </div>
         <div className="gmap_canvas block sm:hidden">
@@ -53,10 +53,10 @@ const Address = (props) => {
             height="300"
             id="gmap_canvas"
             src="https://maps.google.com/maps?q=universiteto%20gatve%208%20Akademija&t=&z=13&ie=UTF8&iwloc=&output=embed"
-            frameborder="0"
+            frameBorder="0"
             scrolling="no"
-            marginheight="0"
-            marginwidth="0"
+            marginHeight="0"
+            marginWidth="0"
           ></iframe>
         </div>
       </div>
