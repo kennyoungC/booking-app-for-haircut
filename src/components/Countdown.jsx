@@ -1,22 +1,17 @@
-import React, { useCallback, useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 
 const HOURS = 1000 * 60 * 60
 const MINUTES = 1000 * 60
-const Countdown = ({ time, date }) => {
-  // console.log(time)
-  // console.log(new Date(date))
+const Countdown = ({ date }) => {
+  console.log(date.getHours() + ":" + date.getMinutes())
   const [countdown, setCountdown] = useState({
     day: "",
     sec: "",
     hour: "",
     minute: "",
   })
-  const todaysDate = new Date()
-  const timeToAdd = 9 * 24 * HOURS
-  // 9 days from current date
+
   const timerEndDate = new Date(new Date(date).getTime())
-  // console.log(todaysDate)
-  // console.log(todaysDate.getTime())
 
   const updateTimer = () => {
     const currentTime = new Date().getTime()

@@ -1,31 +1,20 @@
 import React, { useState } from "react"
 import Countdown from "./Countdown"
+import DatePicker from "react-datepicker"
+import "react-datepicker/dist/react-datepicker.css"
+import setHours from "date-fns/setHours"
+import setMinutes from "date-fns/setMinutes"
+import format from "date-fns/format"
 
-const avaibleTime = [
-  "8AM",
-  "10AM",
-  "12AM",
-  "2PM",
-  "4PM",
-  "6PM",
-  "8PM",
-  "10PM",
-  "12PM",
-]
-const year = new Date().getFullYear()
-const month =
-  new Date().getMonth() + 1 < 10
-    ? `0${new Date().getMonth() + 1}`
-    : new Date().getMonth() + 1
-const day =
-  new Date().getDate() < 10 ? `0${new Date().getDate()}` : new Date().getDate()
 const Booking = () => {
   const [appointments, setAppointments] = useState([])
+
   const [bookings, setBookings] = useState({
     date: "",
     time: "",
     name: "",
     email: "",
+    number: "",
   })
 
   const submitHandler = (e) => {
@@ -38,13 +27,10 @@ const Booking = () => {
       time: "",
       name: "",
       email: "",
+      number: "",
     })
   }
-  console.log(
-    `${new Date().getFullYear()}-0${
-      new Date().getMonth() + 1
-    }-${new Date().getDate()}`
-  )
+
   return (
     <div className="container mx-auto py-16 px-4 grid grid-cols-1 md:grid-cols-2 gap-5 bg-gray-400">
       <div>
@@ -73,50 +59,43 @@ const Booking = () => {
               className="block text-gray-700 text-sm font-bold mb-2"
               htmlFor="date"
             >
-              Pick a Date<span className="text-red-700">*</span>
+              Phone Number<span className="text-red-700">*</span>
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="date"
-              type="date"
+              id="number"
+              type="tel"
               required
-              value={bookings.date}
-              min={`${year}-${month}-${day}`}
+              value={bookings.number}
               onChange={(e) =>
-                setBookings({ ...bookings, date: e.target.value })
+                setBookings({ ...bookings, number: e.target.value })
               }
             />
           </div>
-          {/* <div className="mb-4">
+          <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="time"
+              htmlFor="date"
             >
-              What time?<span className="text-red-700">*</span>
+              Pick a Date<span className="text-red-700">*</span>
             </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="time"
-              type="time"
-              required
+            <DatePicker
+              selected={bookings.date}
+              onChange={(date) => setBookings({ ...bookings, date })}
+              minDate={new Date()}
+              filterDate={(date) => date.getDay() !== 6 && date.getDay() !== 0}
+              isClearable
+              showTimeSelect
+              minTime={setHours(setMinutes(new Date(), 0), 10)}
+              maxTime={setHours(setMinutes(new Date(), 30), 23)}
+              excludeTimes={[
+                setHours(setMinutes(new Date(), 0), 17),
+                setHours(setMinutes(new Date(), 30), 18),
+                setHours(setMinutes(new Date(), 30), 19),
+                setHours(setMinutes(new Date(), 30), 17),
+              ]}
+              dateFormat="MMMM d, yyyy h:mm aa"
             />
-          </div> */}
-          <div className="mb-4">
-            <h2 className="block text-gray-700 text-sm font-bold mb-2">
-              Available Times<span className="text-red-700">*</span>
-            </h2>
-            <div className="grid grid-cols-6 gap-2">
-              {avaibleTime.map((time) => (
-                <button
-                  type="button"
-                  className="hover:bg-gray-700 hover:text-white bg-gray-100 text-gray-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300 text-center"
-                  onClick={() => setBookings({ ...bookings, time })}
-                  key={time}
-                >
-                  {time}
-                </button>
-              ))}
-            </div>
           </div>
 
           <div className="mb-4">
@@ -174,17 +153,17 @@ const Booking = () => {
                   <p className=" text-xl font-semibold">
                     Date:{" "}
                     <span className="text-base font-normal">
-                      {bookings.date}
+                      {format(bookings.date, "yyyy MMMM dd")}
                     </span>
                   </p>
                   <p className=" text-xl font-semibold">
                     Time:{" "}
                     <span className="text-base font-normal">
-                      {bookings.time}
+                      {format(bookings.date, "K:mma")}
                     </span>
                   </p>
                 </div>
-                <Countdown time={bookings.time} date={bookings.date} />
+                <Countdown date={bookings.date} />
               </div>
             ))}
         </div>
