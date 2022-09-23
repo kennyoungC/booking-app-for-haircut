@@ -4,6 +4,7 @@
 
 @layer {
   body {
+    @apply bg-veryDarkBlue;
     @apply bg-gray-200;
   }
 }
